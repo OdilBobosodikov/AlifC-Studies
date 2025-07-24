@@ -4,14 +4,19 @@ namespace AlifEntry
 {
     internal class Program
     {
+        enum Operations 
+        {
+            Plus,
+            Multiply
+        }
         static void Main(string[] args)
         {
             //Task1();
             //Task2();
             //Task3();
             //Task7();
-            //Task8();
-            Task9();
+            Task8();
+            //Task9();
         }
 
         static void Task1()
@@ -114,20 +119,12 @@ namespace AlifEntry
 
         static void Task8() 
         {
-            var inp = Console.ReadLine();
-            int sum = 0;
-            int product = 1;
-
+            var inp = String.Concat(Console.ReadLine().Reverse());
+           
             if (int.TryParse(inp, out int result))
             {
-               while (result > 0) 
-               {
-                  sum += result % 10;
-                  product *= result % 10;
-                  result = result / 10;
-               }
-               Console.WriteLine($"Sum is {sum}");
-               Console.WriteLine($"Product is {product}");
+                displayData(result, Operations.Plus);
+                displayData(result, Operations.Multiply);
             }
         }
 
@@ -141,6 +138,43 @@ namespace AlifEntry
                 {
                     Console.Write(inp[i]);
                 }
+            }
+        }
+
+        static void displayData(int result, Operations operation) 
+        {
+            int sum = 0;
+            int product = 1;
+
+            switch (operation)
+            {
+                case Operations.Plus:
+                    while (result > 0)
+                    {
+                        Console.Write(result % 10);
+                        if (result > 10)
+                        {
+                            Console.Write("+");
+                        }
+                        sum += result % 10;
+                        result = result / 10;
+                    }
+                    Console.WriteLine("=" + sum);
+                    break;
+
+                case Operations.Multiply:
+                    while (result > 0)
+                    {
+                        Console.Write(result % 10);
+                        if (result > 10)
+                        {
+                            Console.Write("*");
+                        }
+                        product *= result % 10;
+                        result = result / 10;
+                    }
+                    Console.WriteLine("=" + product);
+                    break;
             }
         }
     }
