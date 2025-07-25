@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace AlifEntry
 {
@@ -14,9 +15,13 @@ namespace AlifEntry
             //Task1();
             //Task2();
             //Task3();
+            //Task4();
+            //Task5();
+            //Task6();
             //Task7();
-            Task8();
+            //Task8();
             //Task9();
+            //Task10();
         }
 
         static void Task1()
@@ -24,8 +29,9 @@ namespace AlifEntry
             string? input = Console.ReadLine();
             int max = int.MinValue;
 
-            if (input == null)
+            if (string.IsNullOrEmpty(input))
             {
+                Console.WriteLine("Emty input");
                 return;
             }
 
@@ -51,8 +57,13 @@ namespace AlifEntry
             string? input = Console.ReadLine();
             double sum = 1;
 
-            
-            var values = input?.Split(" ");
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var values = input.Split(" ");
 
             if (values.Length != 2 || !int.TryParse(values[0], out _) || !int.TryParse(values[1], out _))
             {
@@ -75,7 +86,13 @@ namespace AlifEntry
             string? input = Console.ReadLine();
             double sum = 0;
 
-            var values = input?.Split(" ");
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var values = input.Split(" ");
 
             for (int i = 1; i < values?.Length; i++)
             {
@@ -91,6 +108,114 @@ namespace AlifEntry
             Console.WriteLine(sum);
         }
 
+        static void Task4()
+        {
+            string? input = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var values = input.Split(" ");
+
+            if (values.Length <= 1)
+            {
+                Console.WriteLine("Wrong input");
+                return;
+            }
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                if ((values[i].Contains("-") && values[i - 1].Contains("-"))
+                    || (!values[i].Contains("-") && !values[i - 1].Contains("-"))) 
+                {
+                    Console.WriteLine("YES");
+                    return;
+                }
+            }
+            Console.WriteLine("NO");
+        }
+
+        static void Task5()
+        {
+            int len;
+
+            if (int.TryParse(Console.ReadLine(), out int res))
+            {
+                len = res;
+            }
+            else 
+            {
+                Console.WriteLine("Wrong input");
+                return;
+            }
+
+            string? input = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var numbers = input.Split(" ");
+
+            Dictionary<int, int> apperiances = new();
+
+            foreach (var number in numbers)
+            {
+                if (int.TryParse(number, out int result)) 
+                {
+                    if (!apperiances.Keys.Contains(result))
+                    {
+                        apperiances.Add(result, 1);
+                        continue;
+                    }
+
+                    apperiances[result] += 1;
+                }
+            }
+
+            foreach (var apperience in apperiances)
+            {
+                if (apperience.Value == 1)
+                {
+                    continue;
+                }
+
+                for (int i = 0; i < apperience.Value; i++)
+                {
+                    Console.Write(apperience.Key + " ");
+                }
+            }
+        }
+
+        static void Task6() 
+        {
+            string? input = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var numbers = input.Split(" ");
+            var min = int.MaxValue;
+
+            foreach (var number in numbers) 
+            {
+                if(int.TryParse(number, out int result) && result < min) 
+                {
+                    min = result;
+                }
+            }
+
+            var output = min == int.MaxValue ? "Wrong input" : $"Min is {min}";
+            Console.WriteLine(output);
+        }
         public static void Task7() 
         {
             int count = 0;
@@ -120,12 +245,14 @@ namespace AlifEntry
         static void Task8() 
         {
             var inp = String.Concat(Console.ReadLine().Reverse());
-           
+
             if (int.TryParse(inp, out int result))
             {
                 displayData(result, Operations.Plus);
                 displayData(result, Operations.Multiply);
+                return;
             }
+            Console.WriteLine("Wrong input");
         }
 
         static void Task9()
@@ -138,7 +265,70 @@ namespace AlifEntry
                 {
                     Console.Write(inp[i]);
                 }
+                return;
             }
+            Console.WriteLine("Wrong input");
+        }
+
+        static void Task10() 
+        {
+            int len;
+
+            if (int.TryParse(Console.ReadLine(), out int res))
+            {
+                len = res;
+            }
+            else
+            {
+                Console.WriteLine("Wrong input");
+                return;
+            }
+
+            string? input = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Emty input");
+                return;
+            }
+
+            var numbers = input.Split(" ");
+
+            foreach (var number in numbers)
+            {
+                if(int.TryParse(number, out int result) && !IsPrimeNumber(result)) 
+                {
+                    Console.Write($"{result} ");
+                }
+            }
+        }
+
+        static bool IsPrimeNumber(int n)
+        {
+            if (n <= 1)
+            {
+                return false;
+            }
+
+            if (n <= 3)
+            {
+                return true;
+            }
+
+            if (n % 2 == 0 || n % 3 == 0)
+            {
+                return false;
+            }
+
+            for (int i = 5; i * i <= n; i += 6)
+            {
+                if (n % i == 0 || n % (i + 2) == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         static void displayData(int result, Operations operation) 
