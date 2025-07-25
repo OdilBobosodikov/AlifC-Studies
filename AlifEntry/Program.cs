@@ -31,7 +31,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
@@ -88,13 +88,13 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
             var values = input.Split(" ");
 
-            for (int i = 1; i < values?.Length; i++)
+            for (int i = 1; i < values.Length; i++)
             {
                 if (values[i] == "0" && values[i - 1] == "0") 
                 {
@@ -114,7 +114,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
@@ -156,7 +156,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
@@ -198,7 +198,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
@@ -288,7 +288,7 @@ namespace AlifEntry
 
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("Emty input");
+                Console.WriteLine("Empty input");
                 return;
             }
 
