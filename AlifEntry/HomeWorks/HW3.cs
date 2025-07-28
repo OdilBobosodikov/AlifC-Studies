@@ -11,12 +11,12 @@ namespace AlifEntry.HomeWorks
         //Task1
         public static int EvenCount(int n)
         {
-            return n.ToString().Select(x => int.Parse(x.ToString())).Where(x => x % 2 == 0).Count();
+            return n.ToString().Select(x => int.Parse(x.ToString())).Where(x => x % 2 == 0 && x != 0).Count();
         }
 
         public static int OddCount(int n)
         {
-            return n.ToString().Select(x => int.Parse(x.ToString())).Where(x => x % 2 != 0).Count();
+            return n.ToString().Select(x => int.Parse(x.ToString())).Where(x => x % 2 != 0 && x != 0).Count();
         }
 
         public static int DigitCount(int n)

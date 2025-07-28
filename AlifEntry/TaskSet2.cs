@@ -1,132 +1,87 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlifEntry
 {
-    public static class TaskSet2
+    public class TaskSet2
     {
-        public static void PrintFromNumberToOne(int number) 
+
+        public static bool isSignEqual(int a, int b) 
         {
-            while (number > 0) 
-            {
-                Console.Write(number);
-                number--;
-            }
+            return a * b >= 0;
         }
 
-        public static int Sum(int a, int b, int c, int d) 
+        public static int MidDigit(int num) 
         {
-            return a + b + c + d;
+            var arr = num.ToString().Select(x => int.Parse(x.ToString())).ToArray();
+            return arr[arr.Length % 2 == 0 ? (arr.Length - 1) / 2 : arr.Length / 2];
         }
 
-        public static int Reverse(int n) 
+        public static bool IsPalindromeRecurcy(string str) 
         {
-            StringBuilder result = new();
-
-            while (n > 0) 
+            if (str.Length <= 1) 
             {
-                result.Append(n % 10);
-                n = n / 10;
+                return true;
+            }
+            if (str[0] != str[str.Length-1])
+            {
+                return false;
             }
 
-            return int.Parse(result.ToString());
+            return IsPalindromeRecurcy(str.Substring(1, str.Length-2));
         }
 
-        public static void PrintStars(int n) 
+        public static int RecurcySum(int val) 
         {
-            for (int i = 0; i < n; i++)
+            if (val <= 0) 
             {
-                Console.Write("*");
+                return val;
             }
-            Console.WriteLine();
+
+            var lastDigit = val % 10;
+            return lastDigit + RecurcySum(lastDigit / 10);
         }
 
-        public static void PrintSquare(int size) 
+        public static string RecursyInverse(string str) 
         {
-            for (int i = 0; i < size; i++)
+            if (string.IsNullOrEmpty(str)) 
             {
-                for (int j = 0; j < size; j++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+                return "";
             }
+            return str[str.Length - 1] + RecursyInverse(str.Substring(0, str.Length - 1));
         }
 
-        public static void PrintRectangle(int width, int height) 
+        public static int RecurcyPower(int value, int exponent) 
         {
-            for (int i = 0; i < height; i++)
+            if (exponent == 1) 
             {
-                PrintStars(width);
+                return value;
             }
+
+            return value * RecurcyPower(value, exponent - 1);
         }
 
-        public static void PrintTriangle(int size) 
+        private static int Fibonnachi(int n, bool printData = false) 
         {
-            int count = 1;
-            for (int i = 0; i < size; i++)
+            if (n <= 1) 
             {
-                for (int j = 0; j < count; j++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
-                count++;
+                return n;
             }
+
+            return Fibonnachi(n - 1, true) + Fibonnachi(n - 2);
         }
 
-        public static void PrintSpaces(int number) 
+        public static void PrintFibonnachiSequance(int n)
         {
-            for (int i = 0; i < number; i++)
+            if (n == 0) 
             {
-                Console.Write(" ");
+                return;
             }
-            Console.WriteLine();
-        }
-
-        public static void PrintRightTriangle(int size)
-        {
-            var counter = size-1;
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    if (j < counter) 
-                    {
-                        Console.Write(" ");
-                        continue;
-                    }
-                    Console.Write("*");
-                }
-                counter--;
-                Console.WriteLine();
-            }
-        }
-
-        public static void Tree(int height) 
-        {
-            int mid = height;
-            var starIndex = (mid, mid);
-
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < (2 * height); j++)
-                {
-                    if (j >= starIndex.Item1 && j <= starIndex.Item2) 
-                    {
-                        Console.Write("*");
-                        continue;
-                    }
-                    Console.Write(" ");
-                }
-                starIndex.Item1 -= 1;
-                starIndex.Item2 += 1;
-                Console.WriteLine();
-            }
+            Console.Write($"{Fibonnachi(n)} ");
+            PrintFibonnachiSequance(n - 1);
         }
     }
 }

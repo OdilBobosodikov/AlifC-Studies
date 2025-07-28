@@ -9,36 +9,45 @@ namespace AlifEntry
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(HW3.EvenCount(12345));
-            Console.WriteLine(HW3.OddCount(12345));
-            Console.WriteLine(HW3.DigitCount(12345));
-            Console.WriteLine(HW3.SumDigit(12345));
-            Console.WriteLine(HW3.MinDigit(12345));
-            Console.WriteLine(HW3.MaxDigit(12345));
-            Console.WriteLine(HW3.Pow(2, 3));
-
-            int x = 10;
-            int y = 20;
-
-            Console.WriteLine($"Before Swap: x = {x}, y = {y}");
-            HW3.Swap(ref x, ref y);
-            Console.WriteLine($"After Swap: x = {x}, y = {y}");
-
-            HW3.Divisors(8);
-
-            int[] arr = new int[] { 1, 2, 3 };
-            HW3.IncrementArrayElements(ref arr, 5);
-            
-            foreach (var item in arr)
-            {
-                Console.Write($"{item} ");
-            }
+            HW4.PrintStatus(12043);
+            //HW4.PrintNumberStatus();
+            //HW4.PrintEvenIndexes();
+            Console.WriteLine(HW4.RepetativeNumbers([1, 2, 1, 2, 4, 5, 6, 7, 1]));
             Console.WriteLine();
+            HW4.PrintMultiTable(2, 3);
+            HW4.Calc();
+            #region HW2 printout
+            //TaskSet2.PrintFibonnachiSequance(10);
+            //Console.WriteLine(HW3.EvenCount(12345));
+            //Console.WriteLine(HW3.OddCount(12345));
+            //Console.WriteLine(HW3.DigitCount(12345));
+            //Console.WriteLine(HW3.MinDigit(12345));
+            //Console.WriteLine(HW3.MaxDigit(12345));
+            //Console.WriteLine(HW3.Pow(2, 3));
 
-            Console.WriteLine(HW3.MinNumber(1,2,3,-1));
+            //int x = 10;
+            //int y = 20;
 
-            Console.WriteLine(HW3.Min(1,2));
-            Console.WriteLine(HW3.Max(1,2));
+            //Console.WriteLine($"Before Swap: x = {x}, y = {y}");
+            //HW3.Swap(ref x, ref y);
+            //Console.WriteLine($"After Swap: x = {x}, y = {y}");
+
+            //HW3.Divisors(8);
+
+            //int[] arr = new int[] { 1, 2, 3 };
+            //HW3.IncrementArrayElements(ref arr, 5);
+
+            //foreach (var item in arr)
+            //{
+            //    Console.Write($"{item} ");
+            //}
+            //Console.WriteLine();
+
+            //Console.WriteLine(HW3.MinNumber(1,2,3,-1));
+
+            //Console.WriteLine(HW3.Min(1,2));
+            //Console.WriteLine(HW3.Max(1,2));
+            #endregion
         }
 
         static void ReferenceTypeCopyingExample() 
