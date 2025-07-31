@@ -4,39 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlifEntry
+namespace AlifEntry.TaskSets
 {
     public class TaskSet2
     {
 
-        public static bool isSignEqual(int a, int b) 
+        public static bool isSignEqual(int a, int b)
         {
             return a * b >= 0;
         }
 
-        public static int MidDigit(int num) 
+        public static int MidDigit(int num)
         {
             var arr = num.ToString().Select(x => int.Parse(x.ToString())).ToArray();
             return arr[arr.Length % 2 == 0 ? (arr.Length - 1) / 2 : arr.Length / 2];
         }
 
-        public static bool IsPalindromeRecurcy(string str) 
+        public static bool IsPalindromeRecurcy(string str)
         {
-            if (str.Length <= 1) 
+            if (str.Length <= 1)
             {
                 return true;
             }
-            if (str[0] != str[str.Length-1])
+            if (str[0] != str[str.Length - 1])
             {
                 return false;
             }
 
-            return IsPalindromeRecurcy(str.Substring(1, str.Length-2));
+            return IsPalindromeRecurcy(str.Substring(1, str.Length - 2));
         }
 
-        public static int RecurcySum(int val) 
+        public static int RecurcySum(int val)
         {
-            if (val <= 0) 
+            if (val <= 0)
             {
                 return val;
             }
@@ -45,18 +45,18 @@ namespace AlifEntry
             return lastDigit + RecurcySum(lastDigit / 10);
         }
 
-        public static string RecursyInverse(string str) 
+        public static string RecursyInverse(string str)
         {
-            if (string.IsNullOrEmpty(str)) 
+            if (string.IsNullOrEmpty(str))
             {
                 return "";
             }
             return str[str.Length - 1] + RecursyInverse(str.Substring(0, str.Length - 1));
         }
 
-        public static int RecurcyPower(int value, int exponent) 
+        public static int RecurcyPower(int value, int exponent)
         {
-            if (exponent == 1) 
+            if (exponent == 1)
             {
                 return value;
             }
@@ -64,9 +64,9 @@ namespace AlifEntry
             return value * RecurcyPower(value, exponent - 1);
         }
 
-        private static int Fibonnachi(int n, bool printData = false) 
+        private static int Fibonnachi(int n, bool printData = false)
         {
-            if (n <= 1) 
+            if (n <= 1)
             {
                 return n;
             }
@@ -76,7 +76,7 @@ namespace AlifEntry
 
         public static void PrintFibonnachiSequance(int n)
         {
-            if (n == 0) 
+            if (n == 0)
             {
                 return;
             }

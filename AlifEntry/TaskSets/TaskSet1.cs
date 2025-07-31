@@ -5,29 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlifEntry
+namespace AlifEntry.TaskSets
 {
     public static class TaskSet1
     {
-        public static void PrintFromNumberToOne(int number) 
+        public static void PrintFromNumberToOne(int number)
         {
-            while (number > 0) 
+            while (number > 0)
             {
                 Console.Write(number);
                 number--;
             }
         }
 
-        public static int Sum(int a, int b, int c, int d) 
+        public static int Sum(int a, int b, int c, int d)
         {
             return a + b + c + d;
         }
 
-        public static int Reverse(int n) 
+        public static int Reverse(int n)
         {
             StringBuilder result = new();
 
-            while (n > 0) 
+            while (n > 0)
             {
                 result.Append(n % 10);
                 n = n / 10;
@@ -36,7 +36,7 @@ namespace AlifEntry
             return int.Parse(result.ToString());
         }
 
-        public static void PrintStars(int n) 
+        public static void PrintStars(int n)
         {
             for (int i = 0; i < n; i++)
             {
@@ -45,7 +45,7 @@ namespace AlifEntry
             Console.WriteLine();
         }
 
-        public static void PrintSquare(int size) 
+        public static void PrintSquare(int size)
         {
             for (int i = 0; i < size; i++)
             {
@@ -57,7 +57,7 @@ namespace AlifEntry
             }
         }
 
-        public static void PrintRectangle(int width, int height) 
+        public static void PrintRectangle(int width, int height)
         {
             for (int i = 0; i < height; i++)
             {
@@ -65,7 +65,7 @@ namespace AlifEntry
             }
         }
 
-        public static void PrintTriangle(int size) 
+        public static void PrintTriangle(int size)
         {
             int count = 1;
             for (int i = 0; i < size; i++)
@@ -79,7 +79,7 @@ namespace AlifEntry
             }
         }
 
-        public static void PrintSpaces(int number) 
+        public static void PrintSpaces(int number)
         {
             for (int i = 0; i < number; i++)
             {
@@ -90,12 +90,12 @@ namespace AlifEntry
 
         public static void PrintRightTriangle(int size)
         {
-            var counter = size-1;
+            var counter = size - 1;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
                 {
-                    if (j < counter) 
+                    if (j < counter)
                     {
                         Console.Write(" ");
                         continue;
@@ -107,16 +107,16 @@ namespace AlifEntry
             }
         }
 
-        public static void Tree(int height) 
+        public static void Tree(int height)
         {
             int mid = height;
             var starIndex = (mid, mid);
 
             for (int i = 0; i < height; i++)
             {
-                for (int j = 0; j < (2 * height); j++)
+                for (int j = 0; j < 2 * height; j++)
                 {
-                    if (j >= starIndex.Item1 && j <= starIndex.Item2) 
+                    if (j >= starIndex.Item1 && j <= starIndex.Item2)
                     {
                         Console.Write("*");
                         continue;
