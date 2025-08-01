@@ -62,18 +62,24 @@ namespace AlifEntry.HomeWorks
         }
 
         //Task4
-        public static int Pow(int x, int y) 
+        public static double Pow(int x, int y) 
         {
-            if (x == 0 || x == 1) 
+            double xRes = x;
+            if (xRes == 0 || xRes == 1) 
             {
-                return x;
-            } 
+                return xRes;
+            }
 
-            int res = 1;
-
-            for (int i = 0; i < y; i++)
+            if (y < 0)
             {
-                res *= x;
+                xRes = 1 / xRes;
+            }
+
+            double res = 1;
+
+            for (int i = 0; i < Math.Abs(y); i++)
+            {
+                res *= xRes;
             }
             return res;
         }
