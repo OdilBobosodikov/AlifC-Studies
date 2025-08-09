@@ -7,6 +7,7 @@ using AlifEntry.HomeWorks.Task5.Task5._5;
 using AlifEntry.HomeWorks.Task6.Task6._1;
 using AlifEntry.HomeWorks.Task6.Task6._3;
 using AlifEntry.HomeWorks.Task6.Task6._4;
+using AlifEntry.TaskSets.Polymorghism;
 using AlifEntry.TaskSets.TaskSet3.Task2;
 using AlifEntry.TaskSets.TaskSet6;
 using System;
@@ -21,85 +22,85 @@ namespace AlifEntry
         {
             #region Task8
 
-        //    var people = new List<Person>
-        //{
-        //    new Person(25, "Alice"),
-        //    new Person(30, "Bob"),
-        //    new Person(22, "Charlie"),
-        //    new Person(30, "Bob") 
-        //};
+            //    var people = new List<Person>
+            //{
+            //    new Person(25, "Alice"),
+            //    new Person(30, "Bob"),
+            //    new Person(22, "Charlie"),
+            //    new Person(30, "Bob") 
+            //};
 
-        //    var numbers = new List<int> { -3, 0, 1, 2, -5, 4, -8 };
-        //    var words = new List<string> { "hello", "world", "hi", "supercalifragilisticexpialidocious" };
-        //    var palindromeWords = new List<string> { "racecar", "level", "hello", "world" };
+            //    var numbers = new List<int> { -3, 0, 1, 2, -5, 4, -8 };
+            //    var words = new List<string> { "hello", "world", "hi", "supercalifragilisticexpialidocious" };
+            //    var palindromeWords = new List<string> { "racecar", "level", "hello", "world" };
 
-        //    Console.WriteLine("Sum: " + HW8.SumOfElements(numbers));
+            //    Console.WriteLine("Sum: " + HW8.SumOfElements(numbers));
 
-        //    Console.WriteLine("Sorted by length:");
-        //    HW8.SortDescByleangth(words).ForEach(Console.WriteLine);
+            //    Console.WriteLine("Sorted by length:");
+            //    HW8.SortDescByleangth(words).ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Sorted people by age:");
-        //    HW8.SortPeople(people).ForEach(p => Console.WriteLine($"{p.name} - {p.age}"));
+            //    Console.WriteLine("Sorted people by age:");
+            //    HW8.SortPeople(people).ForEach(p => Console.WriteLine($"{p._name} - {p.age}"));
 
-        //    var numbersToModify = new List<int>(numbers);
-        //    HW8.DelteteOdd(ref numbersToModify);
-        //    Console.WriteLine("After deleting odd:");
-        //    numbersToModify.ForEach(Console.WriteLine);
+            //    var numbersToModify = new List<int>(numbers);
+            //    HW8.DelteteOdd(ref numbersToModify);
+            //    Console.WriteLine("After deleting odd:");
+            //    numbersToModify.ForEach(Console.WriteLine);
 
-        //    var linesToUpper = new List<string> { "hello", "world", "test" };
-        //    HW8.ConvertToUpper(ref linesToUpper);
-        //    Console.WriteLine("Uppercase lines:");
-        //    linesToUpper.ForEach(Console.WriteLine);
+            //    var linesToUpper = new List<string> { "hello", "world", "test" };
+            //    HW8.ConvertToUpper(ref linesToUpper);
+            //    Console.WriteLine("Uppercase lines:");
+            //    linesToUpper.ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Max: " + HW8.MaxOf(numbers));
-        //    Console.WriteLine("Min: " + HW8.MinOf(numbers));
+            //    Console.WriteLine("Max: " + HW8.MaxOf(numbers));
+            //    Console.WriteLine("Min: " + HW8.MinOf(numbers));
 
-        //    Console.WriteLine("Unique character strings:");
-        //    HW8.ContainsUniqueChars(words).ForEach(Console.WriteLine);
+            //    Console.WriteLine("Unique character strings:");
+            //    HW8.ContainsUniqueChars(words).ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Average age: " + HW8.AverageAge(people));
+            //    Console.WriteLine("Average age: " + HW8.AverageAge(people));
 
-        //    Console.WriteLine("Unique integers:");
-        //    HW8.UniqueInts(new List<int> { 1, 2, 2, 3, 3, 3 }).ForEach(Console.WriteLine);
+            //    Console.WriteLine("Unique integers:");
+            //    HW8.UniqueInts(new List<int> { 1, 2, 2, 3, 3, 3 }).ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Palindromes:");
-        //    HW8.PalindromeStrings(palindromeWords).ForEach(Console.WriteLine);
+            //    Console.WriteLine("Palindromes:");
+            //    HW8.PalindromeStrings(palindromeWords).ForEach(Console.WriteLine);
 
-        //    var template = new Person(30, "Bob");
-        //    Console.WriteLine("Matched people:");
-        //    HW8.GetSpecificValue(people, template).ForEach(p => Console.WriteLine($"{p.name} - {p.age}"));
+            //    var template = new Person(30, "Bob");
+            //    Console.WriteLine("Matched people:");
+            //    HW8.GetSpecificValue(people, template).ForEach(p => Console.WriteLine($"{p._name} - {p.age}"));
 
-        //    Console.WriteLine("Combined list: " + HW8.CombineList(words));
+            //    Console.WriteLine("Combined list: " + HW8.CombineList(words));
 
-        //    Console.WriteLine("Sum of odd indices: " + HW8.SumOfOddIndeces(numbers));
+            //    Console.WriteLine("Sum of odd indices: " + HW8.SumOfOddIndeces(numbers));
 
-        //    Console.WriteLine("Longest string: " + HW8.LongestString(words));
+            //    Console.WriteLine("Longest string: " + HW8.LongestString(words));
 
-        //    Console.WriteLine("Sorted by name:");
-        //    HW8.SortByName(people).ForEach(p => Console.WriteLine($"{p.name} - {p.age}"));
+            //    Console.WriteLine("Sorted by _name:");
+            //    HW8.SortByName(people).ForEach(p => Console.WriteLine($"{p._name} - {p.age}"));
 
-        //    Console.WriteLine("Pairs with sum 1:");
-        //    HW8.PairsSumThatMake(1, numbers).ForEach(pair => Console.WriteLine($"({pair.Item1}, {pair.Item2})"));
+            //    Console.WriteLine("Pairs with sum 1:");
+            //    HW8.PairsSumThatMake(1, numbers).ForEach(pair => Console.WriteLine($"({pair.Item1}, {pair.Item2})"));
 
-        //    Console.WriteLine("People above average age:");
-        //    HW8.AgeIsAboveAverage(people).ForEach(p => Console.WriteLine($"{p.name} - {p.age}"));
+            //    Console.WriteLine("People above average age:");
+            //    HW8.AgeIsAboveAverage(people).ForEach(p => Console.WriteLine($"{p._name} - {p.age}"));
 
-        //    var linesToFilter = new List<string> { "apple pie", "banana", "cherry pie" };
-        //    HW8.RemoveElementThatHas("pie", ref linesToFilter);
-        //    Console.WriteLine("Filtered lines:");
-        //    linesToFilter.ForEach(Console.WriteLine);
+            //    var linesToFilter = new List<string> { "apple pie", "banana", "cherry pie" };
+            //    HW8.RemoveElementThatHas("pie", ref linesToFilter);
+            //    Console.WriteLine("Filtered lines:");
+            //    linesToFilter.ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Absolute values:");
-        //    HW8.ConvertToAbsoluteValues(numbers).ForEach(Console.WriteLine);
+            //    Console.WriteLine("Absolute values:");
+            //    HW8.ConvertToAbsoluteValues(numbers).ForEach(Console.WriteLine);
 
-        //    Console.WriteLine("Grouped by age:");
-        //    var groups = HW8.GroupByAge(people);
+            //    Console.WriteLine("Grouped by age:");
+            //    var groups = HW8.GroupByAge(people);
 
-        //    foreach (var group in groups)
-        //    {
-        //        Console.WriteLine($"Age {group[0].age}:");
-        //        group.ForEach(p => Console.WriteLine($"  {p.name}"));
-        //    }
+            //    foreach (var group in groups)
+            //    {
+            //        Console.WriteLine($"Age {group[0].age}:");
+            //        group.ForEach(p => Console.WriteLine($"  {p._name}"));
+            //    }
 
 
             #endregion
