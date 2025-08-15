@@ -11,6 +11,7 @@ using AlifEntry.TaskSets.Polymorghism;
 using AlifEntry.TaskSets.TaskSet3.Task2;
 using AlifEntry.TaskSets.TaskSet6;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 
@@ -18,8 +19,170 @@ namespace AlifEntry
 {
     internal class Program
     {
+        enum Month
+        {
+            Jan = 1,
+            Feb,
+            March,
+            April,
+            May,
+            June,
+            July,
+            Aug,
+            Sep,
+            Oct,
+            Nov,
+            Dec
+        }
+
+        enum Color
+        {
+            Red,
+            Green,
+            Blue,
+        }
         static void Main(string[] args)
         {
+
+            #region Exception and DateTime
+            try
+            {
+                int a = int.Parse(Console.ReadLine());
+                int b = int.Parse(Console.ReadLine());
+                Console.WriteLine(a / b);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+
+            DateTime.TryParse(Console.ReadLine(), out DateTime formatedDate);
+            Console.WriteLine(new DateTime(Math.Abs(DateTime.Now.Ticks - formatedDate.Ticks)).Day);
+
+
+            try
+            {
+                int monthInt = int.Parse(Console.ReadLine());
+
+                if (monthInt < 1 || monthInt > 12)
+                {
+                    throw new ArgumentException("Month must be between 1 and 12.");
+                }
+
+                Month month;
+
+                switch (monthInt)
+                {
+                    case 1:
+                        month = Month.Jan;
+                        break;
+                    case 2:
+                        month = Month.Feb;
+                        break;
+                    case 3:
+                        month = Month.March;
+                        break;
+                    case 4:
+                        month = Month.April;
+                        break;
+                    case 5:
+                        month = Month.May;
+                        break;
+                    case 6:
+                        month = Month.June;
+                        break;
+                    case 7:
+                        month = Month.July;
+                        break;
+                    case 8:
+                        month = Month.Aug;
+                        break;
+                    case 9:
+                        month = Month.Sep;
+                        break;
+                    case 10:
+                        month = Month.Oct;
+                        break;
+                    case 11:
+                        month = Month.Nov;
+                        break;
+                    case 12:
+                        month = Month.Dec;
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid month number.");
+                }
+
+                Console.WriteLine($"Selected month: {month}");
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            try
+            {
+                string inp = Console.ReadLine() ?? "";
+
+                switch (inp.ToLower())
+                {
+                    case "red":
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        break;
+                    case "green":
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        break;
+                    case "blue":
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        break;
+                    default:
+                        throw new ArgumentException();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            
+            try
+            {
+                int id = int.Parse(Console.ReadLine());
+
+                if (id < 0 || id > 5)
+                {
+                    throw new ArgumentException();
+                }
+                var shop = new OnlineShop();
+
+                Console.WriteLine(shop.Items.FirstOrDefault(x => x.Id == id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            try
+            {
+                string login = Console.ReadLine() ?? string.Empty;
+
+                var hotel = new Hostel();
+
+                Console.WriteLine(hotel.Guests.FirstOrDefault(x => x.Login.ToLower() == x.Login.ToLower()));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            #endregion
+
             #region Task8
 
             //    var people = new List<Person>
@@ -397,6 +560,73 @@ namespace AlifEntry
             //Console.WriteLine(HW3.Min(1,2));
             //Console.WriteLine(HW3.Max(1,2));
             #endregion
+        }
+
+
+        enum Status
+        {
+            New,
+            Processing,
+            Shipped,
+            Delivered, 
+            Cancelled
+        }
+        class OnlineShop()
+        {
+            public List<Item> Items { get; set; } = new() 
+            {
+                new Item {Id = 1, Status = Status.New},
+                new Item {Id = 2, Status = Status.Processing},
+                new Item {Id = 3, Status = Status.Delivered},
+                new Item {Id = 4, Status = Status.Shipped},
+                new Item {Id = 5, Status = Status.Cancelled},
+            };
+        }
+
+        class Item
+        {
+            public Status Status { get; set; }
+            public int Id { get; set; }
+
+            public override string ToString()
+            {
+                return $"{Id} {Status}";
+            }
+        }
+
+        enum BookingType 
+        {
+            Guest,
+            Member,
+            VIP
+        }
+
+        class Hostel
+        {
+            public List<Visitor> Guests { get; set; } = new()
+            {
+                new Visitor() {Type = BookingType.Guest, Login = "Liam"},
+                new Visitor() {Type = BookingType.Member, Login = "Tom"},
+                new Visitor() {Type = BookingType.VIP, Login = "Bob"},
+            };
+        }
+
+        class Visitor 
+        {
+            public BookingType Type { get; set; }
+            public required string Login { get; set; }
+
+            public override string ToString()
+            {
+                string discount = string.Empty;
+
+                if (Type == BookingType.VIP) 
+                {
+                    discount = "Discount: 15%";
+                }
+
+                return $"{Type} {Login} {discount}"; 
+            }
         }
     }
 }
